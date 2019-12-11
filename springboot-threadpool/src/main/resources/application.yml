@@ -1,0 +1,6 @@
+
+task-executor:
+  core_pool_size: 5
+  max_pool_size: 15
+  queue_capacity: 30
+  name-prefix: asyn-service-

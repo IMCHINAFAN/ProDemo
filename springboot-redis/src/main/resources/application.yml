@@ -1,0 +1,36 @@
+spring:
+  redis:
+    host: 122.51.195.68
+    port: 6379
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://122.51.195.68:3306/blog?serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: root456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 20
+      initial-size: 10
+      max-wait: 60000
+  servlet:
+    multipart:
+      max-file-size: 120MB
+      max-request-size: 120MB
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.study.springbootredis.bean
+  configuration:
+    use-actual-param-name: true
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#通过http://localhost:8080/actuator来访问
+server:
+  port: 8080

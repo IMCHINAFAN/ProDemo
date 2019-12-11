@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.study.springboot.mapper.GoodsMapper">
+    <update id="updateStock" parameterType="java.lang.Integer">
+        UPDATE goods SET goods_stock = goods_stock-1
+        where (goods_stock-1) > 0 and goods_id = #{goodsId}
+    </update>
+
+    <select id="getGoodsById" resultType="cn.study.springboot.bean.Goods">
+        SELECT * FROM goods WHERE goods_id = #{goodsId}
+    </select>
+</mapper>
